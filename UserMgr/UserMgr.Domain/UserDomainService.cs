@@ -50,15 +50,16 @@ namespace UserMgr.Domain
         }
         public void ResetAccessFail(User user)
         {
-            user.USerAccessFail.Reset();
+            //user.UserAccessFail.Reset();
         }
         public bool IsLockOut(User user)
         {
-            return user.USerAccessFail.IsLockOut();
+            //return user.UserAccessFail.IsLockOut();
+            return false;
         }
         public void AccessFail(User user)
         {
-            user.USerAccessFail.Fail();
+            //user.UserAccessFail.Fail();
         }
         public async Task<CheckCodeResult> CheckPhoneCodeAsync(Phone phone,string code)
         {

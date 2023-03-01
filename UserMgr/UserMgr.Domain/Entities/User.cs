@@ -12,13 +12,13 @@ namespace UserMgr.Domain.Entities
         public Guid Id { get; set; }
         public Phone Phone { get; private set; }
         private string? passwordHash;
-        public UserAccessFail USerAccessFail { get;private set; }
+        //public UserAccessFail UserAccessFail { get;private set; }
         private User() { }
         public User(Phone phone)
         {
             this.Phone = phone;
             this.Id=Guid.NewGuid();
-            this.USerAccessFail = new UserAccessFail(this);
+            //this.UserAccessFail = new UserAccessFail(this);
         }
         public bool HasPassword()
         {

@@ -14,5 +14,5 @@ namespace UserMgr.Domain
     /// <param name="phone"></param>
     /// <param name=""></param>
     /// <param name="result"></param>
-    public record UserAccessResultEvent(Phone phone,UserAccessResult result):INotification;
+    public record UserAccessResultEvent(Phone Phone,UserAccessResult Result):INotification;
 }
