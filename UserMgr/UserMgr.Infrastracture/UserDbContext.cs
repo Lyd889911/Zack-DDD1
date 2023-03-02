@@ -22,9 +22,9 @@ namespace UserMgr.Infrastracture
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
-            modelBuilder.ApplyConfiguration(new UserConfig());
-            modelBuilder.ApplyConfiguration(new UserLoginHistoryConfig());
+            modelBuilder.ApplyConfigurationsFromAssembly(this.GetType().Assembly);
+            //modelBuilder.ApplyConfiguration(new UserConfig());
+            //modelBuilder.ApplyConfiguration(new UserLoginHistoryConfig());
         }
     }
 }

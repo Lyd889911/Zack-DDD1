@@ -11,15 +11,15 @@ using UserMgr.Infrastracture;
 namespace UserMgr.Infrastracture.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20230301161855_Init")]
-    partial class Init
+    [Migration("20230302061926_t1")]
+    partial class t1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("UserMgr.Domain.Entities.User", b =>
@@ -61,7 +61,7 @@ namespace UserMgr.Infrastracture.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("user_access_fails", (string)null);
+                    b.ToTable("user_access_fail", (string)null);
                 });
 
             modelBuilder.Entity("UserMgr.Domain.Entities.UserLoginHistory", b =>
@@ -116,7 +116,7 @@ namespace UserMgr.Infrastracture.Migrations
             modelBuilder.Entity("UserMgr.Domain.Entities.UserAccessFail", b =>
                 {
                     b.HasOne("UserMgr.Domain.Entities.User", "User")
-                        .WithOne("USerAccessFail")
+                        .WithOne("UserAccessFail")
                         .HasForeignKey("UserMgr.Domain.Entities.UserAccessFail", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -154,7 +154,7 @@ namespace UserMgr.Infrastracture.Migrations
 
             modelBuilder.Entity("UserMgr.Domain.Entities.User", b =>
                 {
-                    b.Navigation("USerAccessFail")
+                    b.Navigation("UserAccessFail")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

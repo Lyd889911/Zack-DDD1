@@ -16,7 +16,7 @@ namespace UserMgr.Infrastracture.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.3")
+                .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("UserMgr.Domain.Entities.User", b =>
@@ -58,7 +58,7 @@ namespace UserMgr.Infrastracture.Migrations
                     b.HasIndex("UserId")
                         .IsUnique();
 
-                    b.ToTable("UserAccessFail", (string)null);
+                    b.ToTable("user_access_fail", (string)null);
                 });
 
             modelBuilder.Entity("UserMgr.Domain.Entities.UserLoginHistory", b =>

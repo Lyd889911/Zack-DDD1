@@ -17,8 +17,8 @@ builder.Services.Configure<MvcOptions>(x =>
 });
 builder.Services.AddDbContext<UserDbContext>(x =>
 {
-    x.UseMySql("Server=localhost;User ID=root;Password=123456;DataBase=ddd1",
-        new MySqlServerVersion(new Version(8, 0, 30)));
+    x.UseMySql("Server=localhost;User ID=root;Password=lyd889911;DataBase=ddd1",
+        new MySqlServerVersion(new Version(5, 7, 36)));
 });
 builder.Services.AddMemoryCache();
 builder.Services.AddMediatR(x=>x.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));

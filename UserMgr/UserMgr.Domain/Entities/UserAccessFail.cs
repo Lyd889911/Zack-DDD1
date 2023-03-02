@@ -9,7 +9,7 @@ namespace UserMgr.Domain.Entities
     public record UserAccessFail
     {
         public Guid Id { get; set; }
-        public User User { get; set; }
+        public User User { get; init; }
         public Guid UserId { get; set; }
         private bool isLockOut;
         public DateTime? LockEnd { get; private set; }

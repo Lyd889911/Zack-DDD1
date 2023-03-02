@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace UserMgr.Infrastracture.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class t1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,8 +22,8 @@ namespace UserMgr.Infrastracture.Migrations
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
-                    Phone_RegionNumber = table.Column<int>(type: "int", nullable: false),
-                    Phone_PhoneNumber = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
+                    PhoneRegionNumber = table.Column<int>(name: "Phone_RegionNumber", type: "int", nullable: false),
+                    PhonePhoneNumber = table.Column<string>(name: "Phone_PhoneNumber", type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     CreateDateTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Message = table.Column<string>(type: "longtext", nullable: false)
@@ -40,8 +40,8 @@ namespace UserMgr.Infrastracture.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Phone_RegionNumber = table.Column<int>(type: "int", nullable: false),
-                    Phone_PhoneNumber = table.Column<string>(type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
+                    PhoneRegionNumber = table.Column<int>(name: "Phone_RegionNumber", type: "int", nullable: false),
+                    PhonePhoneNumber = table.Column<string>(name: "Phone_PhoneNumber", type: "varchar(20)", unicode: false, maxLength: 20, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     passwordHash = table.Column<string>(type: "varchar(100)", unicode: false, maxLength: 100, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
@@ -53,7 +53,7 @@ namespace UserMgr.Infrastracture.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "user_access_fails",
+                name: "user_access_fail",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -64,9 +64,9 @@ namespace UserMgr.Infrastracture.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_user_access_fails", x => x.Id);
+                    table.PrimaryKey("PK_user_access_fail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_user_access_fails_users_UserId",
+                        name: "FK_user_access_fail_users_UserId",
                         column: x => x.UserId,
                         principalTable: "users",
                         principalColumn: "Id",
@@ -75,8 +75,8 @@ namespace UserMgr.Infrastracture.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_user_access_fails_UserId",
-                table: "user_access_fails",
+                name: "IX_user_access_fail_UserId",
+                table: "user_access_fail",
                 column: "UserId",
                 unique: true);
         }
@@ -85,7 +85,7 @@ namespace UserMgr.Infrastracture.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "user_access_fails");
+                name: "user_access_fail");
 
             migrationBuilder.DropTable(
                 name: "user_login_history");

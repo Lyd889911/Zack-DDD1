@@ -9,12 +9,12 @@ using UserMgr.Domain.Entities;
 
 namespace UserMgr.Infrastracture.Config
 {
-    //public class UserAccessFailConfig : IEntityTypeConfiguration<UserAccessFail>
-    //{
-    //    public void Configure(EntityTypeBuilder<UserAccessFail> builder)
-    //    {
-    //        builder.ToTable("UserAccessFail");
-    //        builder.Property("isLockOut");
-    //    }
-    //}
+    public class UserAccessFailConfig : IEntityTypeConfiguration<UserAccessFail>
+    {
+        public void Configure(EntityTypeBuilder<UserAccessFail> builder)
+        {
+            builder.ToTable("user_access_fail");
+            builder.Property("isLockOut");
+        }
+    }
 }

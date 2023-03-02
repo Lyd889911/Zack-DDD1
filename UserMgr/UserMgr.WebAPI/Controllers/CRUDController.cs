@@ -28,7 +28,7 @@ namespace UserMgr.WebAPI.Controllers
             var user = new User(req.phone);
             user.ChangePassword(req.password);
             userDbContext.Users.Add(user);
-            return Ok(user);
+            return Ok("添加成功");
         }
     }
 }
